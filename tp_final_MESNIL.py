@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 import pandas as pd
 
 # Données + nettoyages des données
-df = pd.read_csv("E:\M1\Python_avance\TP-M1-ECAP-MESNIL\datasets\data.csv")
+df = pd.read_csv("datasets/data.csv")
 df["Transaction_Date"] = pd.to_datetime(df["Transaction_Date"])
 df["Total_price"] = df["Quantity"] * df["Avg_Price"] * (1 - df["Discount_pct"]/100)
 df["Location"] = df["Location"].fillna("Inconnu").astype(str)
