@@ -117,6 +117,7 @@ def kpi_volume_ventes(donnees):
 # App Dash
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 app.layout = html.Div([
     # Barre du haut
@@ -221,5 +222,5 @@ def maj_dashboard(zones):
     )
 
 # Lancement du tableau de bord
-if __name__ == "__main__":
-    app.run(debug=True, port=8067, jupyter_mode="external")
+if __name__ == '__main__':
+    app.run_server(debug=True)
