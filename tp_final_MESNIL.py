@@ -12,8 +12,8 @@ import pandas as pd
 df = pd.read_csv("datasets/data.csv")
 df["Transaction_Date"] = pd.to_datetime(df["Transaction_Date"])
 df["Total_price"] = df["Quantity"] * df["Avg_Price"] * (1 - df["Discount_pct"]/100)
-df["Location"] = df["Location"].fillna("Inconnu").astype(str)
-
+df = df.dropna(subset=["Location"])
+df["Location"] = df["Location"].astype(str)
 # Police d'écriture pour le tableau de bord
 FONT_FAMILY = "Arial, sans-serif"
 
